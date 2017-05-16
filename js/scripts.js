@@ -10,23 +10,16 @@ function Game (currentNumber){
   this.currentNumber = currentNumber;
 }
 
+//Created Pokemon//
+var Charmander = new Pokemon("Charmander", 100, "fire");
+var Pikachu = new Pokemon("Pikachu", 100, "lightning");
+var currentGame = new Game(0);
+
+
 //random number generator functions
 function getRandomInt() {
   return Math.floor(Math.random() * 10) + 1;
 }
-
-function pikachuSpecial() {
-  if (Charmander.pokemonType === "water") {
-    return getRandomInt() * 2 + 9;
-  } else {
-    return getRandomInt() * 1.4.toPrecision(1);
-  };
-};
-
-function charSpecial() {
-  return getRandomInt() * 2 + 9;
-}
-
 
 // Game.prototype.appendString = function (x, y) {
 //   return "<p> " + x + " attacks " + y + "! </p>  <p>" + y + " sustains " + Game.currentNumber + " damage.</p>"
@@ -40,7 +33,7 @@ function gameOver(opponent) {
   }
 }
 
-//Pokemon attack prototypes//
+//Pokemon attacks//
 Pokemon.prototype.pikaAttack = function (opponent) {
   var num = getRandomInt();//set num to random number
   opponent.health -= num;//subtract num from oppponent health
@@ -59,6 +52,13 @@ Pokemon.prototype.pikaAttack2 = function (opponent) {
   Game.currentNumber = num;
 }
 
+function pikachuSpecial() {
+  if (Charmander.pokemonType === "water") {
+    return getRandomInt() * 2 + 9;
+  } else {
+    return getRandomInt() * 1.4.toPrecision(1);
+  };
+};
 
 Pokemon.prototype.charAttack = function (opponent) {
   var num = getRandomInt();
@@ -79,10 +79,10 @@ Pokemon.prototype.charAttack2 = function (opponent) {
 }
 
 
-//Created Pokemon//
-var Charmander = new Pokemon("Charmander", 100, "fire");
-var Pikachu = new Pokemon("Pikachu", 100, "lightning");
-var currentGame = new Game(0);
+function charSpecial() {
+  return getRandomInt() * 2 + 9;
+};
+
 
 
 
