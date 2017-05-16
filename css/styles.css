@@ -25,6 +25,7 @@
   background-color: #CADC9F;
   margin: 50px 150px;
   padding: 0px;
+  box-shadow: inset 0px 0px 20px 10px rgba(0, 0, 0, 0.6);
 }
 
 .row {
@@ -33,6 +34,7 @@
 
 body {
   background-color: #b3b1b2;
+  font-family: early;
 }
 /*/////////////////////game area/////////////////////////////////*/
 
@@ -41,6 +43,7 @@ body {
   background-image: url(../img/battlefield.jpg);
   background-position: top;
   opacity: .7;
+  box-shadow: inset 12px 0 15px -4px rgba(0, 0, 0, 0.6), inset  -12px 0 8px -4px rgba(0, 0, 0, 0.6);
 }
 
 .pic-screen {
@@ -57,7 +60,6 @@ body {
 
 /*/////////////////////interface/////////////////////////////////*/
 #interface {
-  border: thin solid red;
   border-top: thick solid #306230;
   height: 270px;
   width: 700px;
