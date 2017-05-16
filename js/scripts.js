@@ -10,20 +10,35 @@ function Game (currentNumber){
   this.currentNumber = currentNumber;
 }
 
-//random number generator
+//random number generator functions
 function getRandomInt() {
   return Math.floor(Math.random() * 10) + 1;
 }
 
 function pikachuSpecial() {
-  return getRandomInt() * 2 + 9;
-}
+  if (Charmander.pokemonType === "water") {
+    return getRandomInt() * 2 + 9;
+  } else {
+    return getRandomInt() * 1.4.toPrecision(1);
+  };
+};
 
 function charSpecial() {
   return getRandomInt() * 2 + 9;
 }
 
 
+// Game.prototype.appendString = function (x, y) {
+//   return "<p> " + x + " attacks " + y + "! </p>  <p>" + y + " sustains " + Game.currentNumber + " damage.</p>"
+// };
+
+//Game over condition evaluator function//
+function gameOver(opponent) {
+  if (opponent.health <= 0) {
+    alert("game over");
+    location.reload();
+  }
+}
 
 //Pokemon attack prototypes//
 Pokemon.prototype.pikaAttack = function (opponent) {
@@ -63,15 +78,9 @@ Pokemon.prototype.charAttack2 = function (opponent) {
   Game.currentNumber = num;
 }
 
-//Game over condition evaluator function//
-function gameOver(opponent) {
-  if (opponent.health <= 0) {
-    alert("game over")
-  }
-}
 
 //Created Pokemon//
-var Charzard = new Pokemon("Charzard", 100, "fire");
+var Charmander = new Pokemon("Charmander", 100, "fire");
 var Pikachu = new Pokemon("Pikachu", 100, "lightning");
 var currentGame = new Game(0);
 
@@ -82,24 +91,29 @@ var currentGame = new Game(0);
 //User Logic//
 $(function() {
   $("#pl1-att1").click(function (){//when user clicks player 1's attack 1 button...
-    Pikachu.pikaAttack(Charzard);//do Pikachu attack on charzard
-    $("#log").empty().text("Pikachu attacks Charzard!  Charzard sustains " + Game.currentNumber + " damage.");//display damage done info to user in log div
+    Pikachu.pikaAttack(Charmander);//do Pikachu attack on Charmander
+    $("#log").empty().append("<p>Pikachu attacks Charmander!</p> <p>Charmander sustains " + Game.currentNumber + " damage.</p>");//display damage done info to user in log div
+    $("#pl2-health-number").text(Charmander.health);
   });
 
   $("#pl1-att2").click(function (){//when user clicks player 1's attack 1 button...
-    Pikachu.pikaAttack2(Charzard);//do Pikachu attack on charzard
-    $("#log").empty().text("Pikachu attacks Charzard!  Charzard sustains " + Game.currentNumber + " damage.");//display damage done info to user in log div
+    Pikachu.pikaAttack2(Charmander);//do Pikachu attack on Charmander
+    $("#log").empty().append("<p>Pikachu attacks Charmander!</p> <p>Charmander sustains " + Game.currentNumber + " damage.</p>");//display damage done info to user in log div
+    $("#pl2-health-number").text(Charmander.health);
+
   });
 
 
   $("#pl2-att1").click(function (){//when user clicks player 2's attack 1 button...
-    Charzard.charAttack(Pikachu);//do Charzard attack on Pikachu
-    $("#log").empty().text("Charzard attacks Pikachu!  Pikachu sustains " + Game.currentNumber + " damage.");//display damage done info to user in log div
+    Charmander.charAttack(Pikachu);//do Charmander attack on Pikachu
+    $("#log").empty().append("<p>Charmander attacks Pikachu!</p> <p>Pikachu sustains " + Game.currentNumber + " damage.</p>");//display damage done info to user in log div
+    $("#pl1-health-number").text(Pikachu.health);
   });
 
   $("#pl2-att2").click(function (){//when user clicks player 1's attack 1 button...
-    Charzard.charAttack2(Pikachu);//do Pikachu attack on charzard
-    $("#log").empty().text("Charzard attacks Pikachu!  Pikachu sustains " + Game.currentNumber + " damage.");//display damage done info to user in log div
+    Charmander.charAttack2(Pikachu);//do Pikachu attack on Charmander
+    $("#log").empty().append("<p>Chamander attacks Pikachu!</p>  <p>Pikachu sustains " + Game.currentNumber + " damage.</p>");//display damage done info to user in log div
+    $("#pl1-health-number").text(Pikachu.health);
   });
 
 
