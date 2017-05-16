@@ -9,42 +9,46 @@
   </head>
   <body>
     <div class="frame">
-    <div class="container">
-      <div class="row" id="battlefield">
-        <div class="col-xs-6 pic-screen" id="player1pic-screen">
-          <img src="img/pikachu.png" alt="pikachu" />
-        </div>
-        <div class="col-xs-6 pic-screen" id="player2pic-screen">
-          <img src="img/charmander.png" alt="charmander" />
-        </div>
-      </div><!--end battlefield row-->
-      <div class="row" id="interface">
-        <div class="col-xs-5 player-col" id="player1col">
-          <h2>Pikachu</h2>
-          <progress id="pl1-health" value="100" max="100">50%</progress>
-          <p><span id="pl1-health-number">100</span>/100</p>
-          <div class="attack-buttons" id="player1attack-buttons">
-            <button id="pl1-att1" type="button" class="btn-default">Attack 1</button>
-            <button id="pl1-att2" type="button" class="btn-default">Attack 2</button>
-          </div>
-        </div>
-        <div class="col-xs-2" id="log">
-          <p>
-            DMG
-          </p>
-        </div>
-        <div class="col-xs-5 player-col" id="player2col">
-          <h2>Charmander</h2>
-          <progress id="pl2-health" value="100" max="100">100%</progress>
-          <p><span id="pl2-health-number">100</span>/100</p>
-          <div class="attack-buttons" id="player2attack-buttons">
-            <button id="pl2-att1" type="button" class="btn-default">Attack 1</button>
-            <button id="pl2-att2" type="button" class="btn-default">Attack 2</button>
-          </div>
-        </div>
+      <div class="power-light powerOn">
       </div>
-    </div><!-- end container-->
-  </div><!--end frame-->
-  <h1 id="header">Pokemon <span id="logo">ARENA</span><span id="tm">tm</span></h1>
+      <div id="power-text">
+        <p>BATTERY</p>
+      </div>
+      <div class="container">
+        <div class="row" id="battlefield">
+          <div class="col-xs-6 pic-screen" id="player1pic-screen">
+            <img src="img/pikachu.png" alt="pikachu" />
+          </div>
+          <div class="col-xs-6 pic-screen" id="player2pic-screen">
+            <img src="img/charmander.png" alt="charmander" />
+          </div>
+        </div><!--end battlefield row-->
+        <div class="row" id="interface">
+          <div class="col-xs-6 player-col" id="player1col">
+            <h2>Pikachu</h2>
+            <progress id="pl1-health" value="100" max="100">50%</progress>
+            <p><span id="pl1-health-number">100</span>/100</p>
+            <div class="attack-buttons" id="player1attack-buttons">
+              <button id="pl1-att1" type="button" class="btn-default">Attack 1</button>
+              <button id="pl1-att2" type="button" class="btn-default">Attack 2</button>
+            </div>
+          </div>
+          <div class="col-xs-6 player-col" id="player2col">
+            <h2>Charmander</h2>
+            <progress id="pl2-health" value="100" max="100">100%</progress>
+            <p><span id="pl2-health-number">100</span>/100</p>
+            <div class="attack-buttons" id="player2attack-buttons">
+              <button id="pl2-att1" type="button" class="btn-default">Attack 1</button>
+              <button id="pl2-att2" type="button" class="btn-default">Attack 2</button>
+            </div>
+          </div>
+          <div class="col-xs-12 initially-hidden" id="log">
+            <br>
+            <img src="img/arrow.gif" alt="down arrow" />
+          </div>
+        </div><!--end interface row-->
+      </div><!-- end container-->
+    </div><!--end frame-->
+    <h1 id="header">Pokemon <span id="logo">ARENA</span><span id="tm">tm</span></h1>
   </body>
 </html>
