@@ -37,13 +37,23 @@ body {
 /*/////////////////////game area/////////////////////////////////*/
 
 /*/////////////////////battlefield/////////////////////////////////*/
+#battlefield {
+  background-image: url(../img/battlefield.jpg);
+  background-position: top;
+  opacity: .7;
+}
+
 .pic-screen {
   height: 330px;
   width: 330px;
   margin: 50px 10px;
-  border: thin solid red;
 }
 
+#battlefield img {
+  height: 280px;
+  width: 280px;
+  margin-left: 20px;
+}
 
 /*/////////////////////interface/////////////////////////////////*/
 #interface {
