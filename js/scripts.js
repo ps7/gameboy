@@ -116,6 +116,8 @@ $(function() {
     $("#pl1-health-number").text(Pikachu.health);
   });
 
-
+  $(".wrapper").click(function() {
+    $(".power-light").toggleClass("powerOn");
+  });
 
 });

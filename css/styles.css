@@ -77,6 +77,9 @@ body {
   background-position: top;
   opacity: .7;
   box-shadow: inset 12px 0 15px -4px rgba(0, 0, 0, 0.6), inset  -12px 0 8px -4px rgba(0, 0, 0, 0.6);
+  background-repeat: no-repeat;
+  background-color: #afc45f;
+  background-size: cover;
 }
 
 .pic-screen {
@@ -86,9 +89,10 @@ body {
 }
 
 #battlefield img {
-  height: 280px;
-  width: 280px;
-  margin-left: 20px;
+  height: 240px;
+  width: 240px;
+  margin-top: 120px;
+  margin-left: 30px;
 }
 
 /*/////////////////////interface/////////////////////////////////*/
