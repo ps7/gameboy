@@ -6,25 +6,50 @@ function Pokemon (name, health, type) {
   this.pokemonType = type;
 }
 //Pokemon attack prototypes//
-Pokemon.prototype.pikaAttack = function () {
-  Charzard.health -= 5;
-  attackFunction(Charzard);
+Pokemon.prototype.pikaAttack = function (opponent) {
+  opponent.health -= 5;
+  let health = document.getElementById("pl2-health")
+  health.value -= 5;
+  gameOver(opponent);
 }
-Pokemon.prototype.charAttack = function () {
-  Pikachu.health -= 5;
+Pokemon.prototype.charAttack = function (opponent) {
+  let health = document.getElementById("pl1-health")
+  health.value -= 5;
+  opponent.health -= 5;
+  gameOver(opponent);
 }
 //Game over condition evaluator function//
-function attackFunction(i) {
-  if (i.health <= 95) {
+function gameOver(opponent) {
+  if (opponent.health <= 0) {
     alert("game over")
   }
 }
 //Created Pokemon//
 var Charzard = new Pokemon("Charzard", 100, "fire");
 var Pikachu = new Pokemon("Pikachu", 100, "lightning");
-console.log(Charzard, Pikachu);
+var allPokemon = []
+allPokemon.push(Charzard, Pikachu)
+
+
+
+//--------------------------------
+
 //User Logic//
-$(function(){
+$(function() {
+  $("#pl1-att1").click(function (){
+    Pikachu.pikaAttack(Charzard);
+    console.log(Charzard);
+    $("#log").text("Pikachu attacks Charzard!  Charzard sustains 5 damage.");
+
+  });
+
+  $("#pl2-att1").click(function (){
+    Charzard.charAttack(Pikachu);
+    console.log(Pikachu);
+    $("#log").empty().text("Charzard attacks Pikachu!  Pikachu sustains 5 damage.");
+  });
+
+
 
 
 });
