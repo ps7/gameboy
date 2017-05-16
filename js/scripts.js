@@ -139,7 +139,10 @@ $(function() {
     $("#pl1-health-number").text(Pikachu.health);
     $(".initially-hidden").show();
     $("#player1col, #player2col").hide();
+  });
 
+  $(".wrapper").click(function() {
+    $(".power-light").toggleClass("powerOn");
   });
 
   $(".initially-hidden").click(function() {
