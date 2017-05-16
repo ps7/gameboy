@@ -28,15 +28,47 @@
   box-shadow: inset 0px 0px 20px 10px rgba(0, 0, 0, 0.6);
 }
 
-.row {
-  margin: 0;
-}
-
 body {
   background-color: #b3b1b2;
   font-family: early;
   color: #0f380f;
 }
+
+.row {
+  margin: 0;
+}
+
+.initially-hidden {
+  display: none;
+}
+
+/*/////////////////////gameboy/////////////////////////////////*/
+.power-light {
+  width: 20px;
+  height: 20px;
+  background-color: #3b272c;
+  border: thin solid black;
+  border-radius: 100%;
+  float: left;
+  margin: 300px 0 0 35px;
+}
+
+.powerOn {
+  background-color: #fc0265;
+  box-shadow: 0 0 10px 1px #fc0265;
+  border: 2px solid grey;
+}
+
+#power-text {
+  float: left;
+  margin: 330px 0 0 -25px;
+  color: #ddd;
+  font-family: Gill Sans MT;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+
 /*/////////////////////game area/////////////////////////////////*/
 
 /*/////////////////////battlefield/////////////////////////////////*/
@@ -73,6 +105,13 @@ body {
 
 #log {
   text-align: center;
+  margin-top: 50px;
+  font-size: 2em;
+}
+
+#log img {
+  float: right;
+  width: 50px;
 }
 /*/////////////////////progress bar/////////////////////////////////*/
 progress[value] {
