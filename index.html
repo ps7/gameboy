@@ -8,8 +8,41 @@
     <title>Pokemon</title>
   </head>
   <body>
+    <div class="frame">
     <div class="container">
+      <div class="row" id="battlefield">
+        <div class="col-xs-6 pic-screen" id="player1pic-screen">
 
+        </div>
+        <div class="col-xs-6 pic-screen" id="player2pic-screen">
+
+        </div>
+      </div><!--end battlefield row-->
+      <div class="row" id="interface">
+        <div class="col-xs-5 player-col" id="player1col">
+          <progress value="50" max="100">50%</progress>
+          <h2>Pokemon Name</h2>
+          <div class="attack-buttons" id="player1attack-buttons">
+            <button type="button" class="btn btn-primary">Default button</button>
+            <button type="button" class="btn btn-primary">Default button</button>
+          </div>
+        </div>
+        <div class="col-xs-2" id="log">
+          <p>
+            DMG
+          </p>
+        </div>
+        <div class="col-xs-5 player-col" id="player2col">
+          <progress value="50" max="100">50%</progress>
+          <h2>Pokemon Name</h2>
+          <div class="attack-buttons" id="player2attack-buttons">
+            <button type="button" class="btn btn-primary">Default button</button>
+            <button type="button" class="btn btn-primary">Default button</button>
+          </div>
+        </div>
+      </div>
     </div><!-- end container-->
+  </div><!--end frame-->
+  <h1 id="header">pokemon <span id="arena-name">ARENA</span></h1>
   </body>
 </html>
