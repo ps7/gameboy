@@ -15,7 +15,11 @@ function getRandomInt() {
   return Math.floor(Math.random() * 10) + 1;
 }
 
-function specialAttack() {
+function pikachuSpecial() {
+  return getRandomInt() * 2 + 9;
+}
+
+function charSpecial() {
   return getRandomInt() * 2 + 9;
 }
 
@@ -32,7 +36,7 @@ Pokemon.prototype.pikaAttack = function (opponent) {
 }
 
 Pokemon.prototype.pikaAttack2 = function (opponent) {
-  var num = specialAttack();
+  var num = pikachuSpecial();
   opponent.health -= num;
   let health = document.getElementById("pl2-health")
   health.value -= num;
@@ -49,6 +53,16 @@ Pokemon.prototype.charAttack = function (opponent) {
   gameOver(opponent);
   Game.currentNumber = num;
 }
+
+Pokemon.prototype.charAttack2 = function (opponent) {
+  var num = charSpecial();
+  opponent.health -= num;
+  let health = document.getElementById("pl1-health")
+  health.value -= num;
+  gameOver(opponent);
+  Game.currentNumber = num;
+}
+
 //Game over condition evaluator function//
 function gameOver(opponent) {
   if (opponent.health <= 0) {
@@ -83,6 +97,10 @@ $(function() {
     $("#log").empty().text("Charzard attacks Pikachu!  Pikachu sustains " + Game.currentNumber + " damage.");//display damage done info to user in log div
   });
 
+  $("#pl2-att2").click(function (){//when user clicks player 1's attack 1 button...
+    Charzard.charAttack2(Pikachu);//do Pikachu attack on charzard
+    $("#log").empty().text("Charzard attacks Pikachu!  Pikachu sustains " + Game.currentNumber + " damage.");//display damage done info to user in log div
+  });
 
 
 
