@@ -103,13 +103,13 @@ Pokemon.prototype.attack2 = function (opponent) {
     opponent.health -= criticalDieRoll;
     let health = document.getElementById("pl2-health")
     health.value -= criticalDieRoll;
-    Game.currentNumber = criticalDieRoll;
+    currentGame.currentNumber = criticalDieRoll;
 
   } else if (true) {
     opponent.health -= dieRoll2;
     let health = document.getElementById("pl2-health")
     health.value -= dieRoll2;
-    Game.currentNumber = dieRoll2;
+    currentGame.currentNumber = dieRoll2;
   }
 
   gameOver(opponent);
@@ -149,30 +149,87 @@ Pokemon.prototype.attack2 = function (opponent) {
 // };
 //
 //charzard's attacks
+//charzard attack 1
+Pokemon.prototype.charzAtt1 = function (opponent) { debugger;
+  var dieRoll = Math.floor(Math.random() * 10) +1;//die roll from 1-10 to decide if there's miss or crit
+  var dieRoll2 = Math.floor(Math.random() * 4) + 8; //regular die roll that determines the base number for attacks
 
-Pokemon.prototype.charAttack = function (opponent) {
-  debugger;
-  var num = getRandomInt();
-  opponent.health -= num;
-  let health = document.getElementById("pl1-health")
-  health.value -= num;
+  if (dieRoll === 1) {
+    currentGame.currentNumber = 0;
+    currentGame.miss = true;
+
+  } else if (dieRoll === 10) {
+    var criticalDieRoll = dieRoll2 + 8;
+    currentGame.currentNumber = criticalDieRoll;
+    currentGame.crit = true;
+    opponent.health -= criticalDieRoll;
+    let health = document.getElementById("pl1-health")
+    health.value -= criticalDieRoll;
+    currentGame.currentNumber = criticalDieRoll;
+
+  } else if (true) {
+    opponent.health -= dieRoll2;
+    let health = document.getElementById("pl1-health")
+    health.value -= dieRoll2;
+    currentGame.currentNumber = dieRoll2;
+  }
+
   gameOver(opponent);
-  currentGame.currentNumber = num;
-}
-
-Pokemon.prototype.charAttack2 = function (opponent) {
-  var num = charSpecial();
-  opponent.health -= num;
-  let health = document.getElementById("pl1-health")
-  health.value -= num;
-  gameOver(opponent);
-  currentGame.currentNumber = num;
-}
-
-
-function charSpecial() {
-  return getRandomInt() + 6 ;
 };
+
+//charzard attack 2
+
+Pokemon.prototype.charzAtt2 = function (opponent) {
+  var dieRoll = Math.floor(Math.random() * 10) +1;//die roll from 1-10 to decide if there's miss or crit
+  var dieRoll2 = Math.floor(Math.random() * 4) + 8; //regular die roll that determines the base number for attacks
+
+  if (dieRoll === 1) {
+    currentGame.currentNumber = 0;
+    currentGame.miss = true;
+
+  } else if (dieRoll === 10) {
+    var criticalDieRoll = dieRoll2 + 8;
+    currentGame.currentNumber = criticalDieRoll;
+    currentGame.crit = true;
+    opponent.health -= criticalDieRoll;
+    let health = document.getElementById("pl1-health")
+    health.value -= criticalDieRoll;
+    currentGame.currentNumber = criticalDieRoll;
+
+  } else if (true) {
+    opponent.health -= dieRoll2;
+    let health = document.getElementById("pl1-health")
+    health.value -= dieRoll2;
+    currentGame.currentNumber = dieRoll2;
+  }
+
+  gameOver(opponent);
+};
+
+//old charzard attacks
+// Pokemon.prototype.charAttack = function (opponent) {
+//   debugger;
+//   var num = getRandomInt();
+//   opponent.health -= num;
+//   let health = document.getElementById("pl1-health")
+//   health.value -= num;
+//   gameOver(opponent);
+//   currentGame.currentNumber = num;
+// }
+//
+// Pokemon.prototype.charAttack2 = function (opponent) {
+//   var num = charSpecial();
+//   opponent.health -= num;
+//   let health = document.getElementById("pl1-health")
+//   health.value -= num;
+//   gameOver(opponent);
+//   currentGame.currentNumber = num;
+// }
+//
+//
+// function charSpecial() {
+//   return getRandomInt() + 6 ;
+// };
 
 //switch player
 
@@ -258,24 +315,67 @@ $("#log").click(function() {
 
   });
 
-  $("#pl2-att1").click(function (){//when user clicks player 2's attack 1 button...
-    Charmander.charAttack(Pikachu);//do Charmander attack on Pikachu
-    $("#log").empty().append("<p>Charmander attacks Pikachu!</p> <p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
+//charmander click functions
+
+  $("#pl2-att1").click(function (){//when user clicks player 1's attack 1 button...
+    Charmander.charzAtt1(Pikachu);//do Pikachu attack on Charmander
+
+    if (currentGame.miss === true) {//if/else statement for miss and crit
+      $("#log").empty().append("<p>Charmander Missed!</p><p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
+      currentGame.miss = false;
+
+    } else if (currentGame.crit === true) {
+      $("#log").empty().append("<p>Critical hit!</p><p>Pikachu sustains MASSIVE " + currentGame.currentNumber + "-damage.</p>");
+      currentGame.crit = false;
+    } else {
+      $("#log").empty().append("<p>Charmander attacks Pikachu!</p> <p>Pikachu sustains " + currentGame.currentNumber + " damage!</p>");
+    };
+    //end of if - else statement
+
+    //this code happens no matter what
     $("#pl1-health-number").text(Pikachu.health);
     $("#log").show();
     $("#player1col, #player2col").hide();
     currentGame.switchPlayer();
-
   });
 
   $("#pl2-att2").click(function (){//when user clicks player 1's attack 1 button...
-    Charmander.charAttack2(Pikachu);//do Pikachu attack on Charmander
-    $("#log").empty().append("<p>Chamander attacks Pikachu!</p>  <p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
+    Charmander.charzAtt2(Pikachu);//do Pikachu attack on Charmander
+    if (currentGame.miss === true) {
+      $("#log").empty().append("<p>Charmander Missed!</p><p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
+      currentGame.miss = false;
+    } else if (currentGame.crit === true) {
+      $("#log").empty().append("<p>Critical hit!</p><p>Pikachu sustains MASSIVE " + currentGame.currentNumber + "-damage.</p>");
+      currentGame.crit = false;
+    } else {
+      $("#log").empty().append("<p>Charmander attacks Pikachu!</p> <p>Pikachu sustains " + currentGame.currentNumber + " damage!</p>");
+    };//display damage done info to user in log div
     $("#pl1-health-number").text(Pikachu.health);
     $("#log").show();
     $("#player1col, #player2col").hide();
     currentGame.switchPlayer();
+
   });
+
+
+  // $("#pl2-att1").click(function (){//when user clicks player 2's attack 1 button...
+  //   Charmander.charAttack(Pikachu);//do Charmander attack on Pikachu
+  //   $("#log").empty().append("<p>Charmander attacks Pikachu!</p> <p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
+  //   $("#pl1-health-number").text(Pikachu.health);
+  //   $("#log").show();
+  //   $("#player1col, #player2col").hide();
+  //   currentGame.switchPlayer();
+  //
+  // });
+  //
+  // $("#pl2-att2").click(function (){//when user clicks player 1's attack 1 button...
+  //   Charmander.charAttack2(Pikachu);//do Pikachu attack on Charmander
+  //   $("#log").empty().append("<p>Chamander attacks Pikachu!</p>  <p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
+  //   $("#pl1-health-number").text(Pikachu.health);
+  //   $("#log").show();
+  //   $("#player1col, #player2col").hide();
+  //   currentGame.switchPlayer();
+  // });
 
   // $("#log").click(function() {
   //   $("#player1col, #player2col").show();
