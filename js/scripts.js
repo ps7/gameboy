@@ -34,8 +34,9 @@ function charSpecial() {
 //Game over condition evaluator function//
 function gameOver(opponent) {
   if (opponent.health <= 0) {
-    alert("game over");
-    location.reload();
+    $(".screen").hide();
+    $("#win-screen").show();
+    $("#credits").delay(2500).animate({top: '-=1800px'}, 11000);
   }
 }
 
