@@ -151,10 +151,6 @@ $(function() {
     $("#player1col, #player2col").hide();
   });
 
-  $(".wrapper").click(function() {
-    $(".power-light").toggleClass("powerOn");
-  });
-
   $(".initially-hidden").click(function() {
     $("#player1col, #player2col").show();
     $(".initially-hidden").hide();
