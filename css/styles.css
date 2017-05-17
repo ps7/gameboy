@@ -14,8 +14,7 @@
   width: 1000px;
   height: 800px;
   position: relative;
-  margin-left: 10%;
-  margin-top: 60px;
+  margin: 60px 10% 0px 10%;
   border-radius: 40px 40px 130px 40px;
 }
 .container {
@@ -150,6 +149,11 @@ progress[value]::-webkit-progress-value {
   color: #CADC9F;
   text-align: center;
   outline-color: inherit;
+}
+
+.btn-default:disabled, .btn-default:disabled:hover {
+  background-color: #eaefdd;
+  color: #0f380f;
 }
 
 /*//////////////////////gameboy///////////////////////////////////*/
