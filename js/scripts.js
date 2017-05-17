@@ -9,27 +9,27 @@ function Pokemon (name, health, type) {
   this.pokemonName = name;
   this.health = health;
   this.pokemonType = type;
-}
+};
 //Lena help
-function Game (currentNumber){
+function Game (currentNumber, miss, crit){
   this.currentNumber = currentNumber;
   this.players=[];
   this.currentPlayer;
-}
+  this.miss = miss;
+  this.crit = crit;
+};
 
-
+console.log(Game.miss);
 
 //random number generator functions
 function getRandomInt() {
-  return Math.floor(Math.random() * 10) + 1;
-}
+  return Math.floor(Math.random() * 4) + 8;
+};
+
 
 // Game.prototype.appendString = function (x, y) {
 //   return "<p> " + x + " attacks " + y + "! </p>  <p>" + y + " sustains " + Game.currentNumber + " damage.</p>"
 // };
-function charSpecial() {
-  return getRandomInt() * 2 + 9;
-};
 
 //Game over condition evaluator function//
 function gameOver(opponent) {
@@ -41,13 +41,13 @@ function gameOver(opponent) {
 
 //Pokemon attacks//
 Pokemon.prototype.pikaAttack = function (opponent) {
-  var num = getRandomInt();//set num to random integer beteween 1 and 10
+  var num = getRandomInt() - 2;//set num to random integer beteween 1 and 10
   opponent.health -= num;//subtract num from oppponent health
   let health = document.getElementById("pl2-health")//set local scope variable for any elements with id pl2-health
   health.value -= num;//subtract num from the health attribute of the progress element selected
   gameOver(opponent);//check if the attack killed the opponent and display game over if so
   Game.currentNumber = num;
-}
+};
 
 Pokemon.prototype.pikaAttack2 = function (opponent) {
   var num = pikachuSpecial();
@@ -56,13 +56,28 @@ Pokemon.prototype.pikaAttack2 = function (opponent) {
   health.value -= num;
   gameOver(opponent);
   Game.currentNumber = num;
-}
+  if (num === 0) { debugger;
+    Game.miss = true;
+    Game.crit = false;
+  } else if (num === 10 ){
+    Game.miss = false;
+    Game.crit = true;
+  } else if (num > 1) {
+    Game.crit = false;
+    Game.miss = false;
+  };
+  console.log(Game.miss);
+};
 
 function pikachuSpecial() {
-  if (Charmander.pokemonType === "water") {
+  if (Math.floor(Math.random() * 10) + 1 === 1) {
+    return 0;
+  } else if (Math.floor(Math.random() * 10) + 1 === 10) {
+    return 10;
+  } else if (Charmander.pokemonType === "water") {
     return getRandomInt() * 2 + 9;
   } else {
-    return getRandomInt() * 1.4.toPrecision(1);
+    return getRandomInt() + 6;
   };
 };
 
@@ -84,7 +99,9 @@ Pokemon.prototype.charAttack2 = function (opponent) {
   Game.currentNumber = num;
 }
 
-
+function charSpecial() {
+  return getRandomInt() + 6 ;
+};
 
 
 
@@ -117,7 +134,14 @@ $(function() {
   $("#pl1-att2").click(function (){//when user clicks player 1's attack 1 button...
 
     Pikachu.pikaAttack2(Charmander);//do Pikachu attack on Charmander
-    $("#log").empty().append("<p>Pikachu attacks Charmander!</p> <p>Charmander sustains " + Game.currentNumber + " damage.</p>");//display damage done info to user in log div
+    if (Game.miss === true) {
+      $("#log").empty().append("<p>Pikachu Missed!</p><p>Charmander sustains " + Game.currentNumber + " damage.</p>");//display damage done info to user in log div
+    } else if (Game.crit === true) {
+      $("#log").empty().append("<p>Critical hit!</p><p>Charmander sustains MASSIVE " + Game.currentNumber + "-damage.</p>");
+    } else {
+      $("#log").empty().append("<p>Pikachu attacks Charmander!</p> <p>Charmander sustains " + Game.currentNumber + " damage!</p>");
+    };//display damage done info to user in log div
+
     $("#pl2-health-number").text(Charmander.health);
     $(".initially-hidden").show();
     $("#player1col, #player2col").hide();
