@@ -2,8 +2,7 @@ $(function() {
 
   $(".wrapper").click(function() {
     if($(".power-light").hasClass("powerOn")) {
-      $(".screen").hide();
-      $(".power-light").toggleClass("powerOn");
+      location.reload();
     } else {
       $(".power-light").toggleClass("powerOn");
       $("#nintendo-screen").fadeIn(5000);

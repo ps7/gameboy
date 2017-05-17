@@ -29,6 +29,66 @@
           <h1>ARENA</h1>
         </div>
       </div>
+      <div class="container hidden-screen" id="win-screen">
+        <div id="credits">
+          <h1>Game over.</h1>
+          <h2><span id="winner">Charmander</span></h2>
+          <h3>wins!</h3>
+          <h2>CREDITS</h2>
+          <p>
+            Pokemon Arena<br><br>
+
+            Pokemon game, 5/18/2017<br><br>
+
+            By Daniel Lopez, Michael Koceja, Brendan Hanna, Jordan Mysliwiec <br><br>
+
+            Description <br><br>
+
+            Turn based game where each player has a pokemon and attacks the opposing pokemon.<br><br>
+
+            Setup/Installation Requirements <br><br>
+
+            Click on gh-pages link <br>
+            OR<br>
+            clone repository<br>
+            open "pokemon-game" folder<br>
+            open .index.html<br><br>
+
+            gh-pages link<br>
+            [click here](https://dlopez6877.github.io/pokemon-game)<br><br>
+
+            Specs<br>
+            | Behavior: this program | Inputs Example: when it receives | Output: it should return|<br>
+            |------------------|:-------------:|------:|<br>
+            |If pokemon 1 uses attack 1 pokemon 2 takes damage|pokemon 1 uses attack|pokemon 2 sustains x damage|<br>
+            |If pokemon 2 has no health pokemon 1 wins|pokemon 2 health = 0|pokemon 1 wins|<br>
+            |If pokemon 1 uses special attack pokemon 2 takes special damage|pokemon uses attack 2|pokemon 2 sustains x*2 damage|<br>
+            |Each attack has a chance to miss or crit|miss / crit|0 damage / x damage *2|<br>
+            |If pokemon 2 has no health pokemon 1 wins|pokemon 2 health = 0|pokemon 1 wins|<br>
+            |After a player takes a turn their buttons become disabled and opponents are enabled|player one attacks| playaer 2's turn|<br>
+            |Each player has 2 pokemon|player one|pikachu and bulbasaur|<br>
+            |Each player has an option to switch pokemon|player one clicks change pokemon|pikachu returns bulbasaur appears|<br>
+            |When one of a players pokemon dies the pokemon is removed and the other pokemon appears|pikachu dies|bulbasaur|<br>
+            |When all of a players pokemon dies the game ends|pikachu dies and bulbasaur is dead|player 2 wins|<br><br>
+
+
+            Support and contact details<br><br>
+
+            e-mail dlopez6877@gmail.com<br><br>
+
+            Technologies Used<br><br>
+
+            css, jquery, javascipt, bootstrap, atom, gitbash<br><br>
+
+            License<br><br>
+
+            MIT<br><br>
+
+            Copyright (c) 2017 Daniel Lopez, Michael Koceja, Brendan Hanna, Jordan Mysliwiec
+          </p>
+          <h4>Thanks for checking out our game!</h4>
+        </div>
+      </div>
       <!-- end screens -->
       <div class="container screen hidden-screen" id="play-screen">
         <div class="row" id="battlefield">
