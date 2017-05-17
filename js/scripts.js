@@ -14,7 +14,7 @@ function Pokemon (name, health, type) {
 function Game (currentNumber){
   this.currentNumber = currentNumber;
   this.players=[];
-  this.currentPlayer;
+  this.currentPlayer=true;
 }
 
 
@@ -84,7 +84,17 @@ Pokemon.prototype.charAttack2 = function (opponent) {
   Game.currentNumber = num;
 }
 
-
+Game.prototype.switchPlayer = function () {
+  if (currentGame.currentPlayer === true) {
+    $(".player1button").attr("disabled", true);
+    $(".player2button").attr("disabled", false);
+    currentGame.currentPlayer = false;
+  } else {
+    $(".player1button").attr("disabled", false);
+    $(".player2button").attr("disabled", true);
+    currentGame.currentPlayer = true;
+  }
+};
 
 
 
