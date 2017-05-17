@@ -192,7 +192,7 @@ progress[value]::-webkit-progress-value {
   width: 500px;
   margin: 200px 0 0 100px;
 }
-
+/*game screen*/
 #game-logo {
  text-align: center;
  margin-top: 270px;

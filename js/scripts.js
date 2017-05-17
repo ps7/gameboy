@@ -21,7 +21,6 @@ function Game (currentNumber){
   this.crit = false;
 };
 
-console.log(currentGame.currentNumber);
 
 
 //random number generator functions
@@ -102,7 +101,6 @@ Pokemon.prototype.attack1 = function (opponent) {
 
 
   } else if (dieRoll === 10) {
-    alert ("its a 10");
     var criticalDieRoll = dieRoll2 + 8;
     currentGame.currentNumber = criticalDieRoll;
     currentGame.crit = true;
@@ -113,7 +111,6 @@ Pokemon.prototype.attack1 = function (opponent) {
 
 
   } else if (true) {
-    alert("this probably won't show up")
     opponent.health -= dieRoll2;
     let health = document.getElementById("pl2-health")
     health.value -= dieRoll2;
@@ -133,28 +130,28 @@ Pokemon.prototype.attack1 = function (opponent) {
 
 
 
-// Pokemon.prototype.charAttack = function (opponent) {
-//   var num = getRandomInt();
-//   opponent.health -= num;
-//   let health = document.getElementById("pl1-health")
-//   health.value -= num;
-//   gameOver(opponent);
-//   Game.currentNumber = num;
-// }
-//
-// Pokemon.prototype.charAttack2 = function (opponent) {
-//   var num = charSpecial();
-//   opponent.health -= num;
-//   let health = document.getElementById("pl1-health")
-//   health.value -= num;
-//   gameOver(opponent);
-//   Game.currentNumber = num;
-// }
-//
-//
-// function charSpecial() {
-//   return getRandomInt() + 6 ;
-// };
+Pokemon.prototype.charAttack = function (opponent) {
+  var num = getRandomInt();
+  opponent.health -= num;
+  let health = document.getElementById("pl1-health")
+  health.value -= num;
+  gameOver(opponent);
+  Game.currentNumber = num;
+}
+
+Pokemon.prototype.charAttack2 = function (opponent) {
+  var num = charSpecial();
+  opponent.health -= num;
+  let health = document.getElementById("pl1-health")
+  health.value -= num;
+  gameOver(opponent);
+  Game.currentNumber = num;
+}
+
+
+function charSpecial() {
+  return getRandomInt() + 6 ;
+};
 
 Game.prototype.switchPlayer = function () {
   if (currentGame.currentPlayer === true) {
@@ -187,9 +184,6 @@ $(function() {
 //     $(".initially-hidden").show();
 //     $("#player1col, #player2col").hide();
 //   });
-$(".wrapper").click(function() {
-  $(".power-light").toggleClass("powerOn");
-});
 
 $(".initially-hidden").click(function() {
   $("#player1col, #player2col").show();
@@ -212,7 +206,6 @@ $(".initially-hidden").click(function() {
 
 
     } else if (currentGame.crit === true) {
-      alert("look we're here now in crit true")
       $("#log").empty().append("<p>Critical hit!</p><p>Charmander sustains MASSIVE " + currentGame.currentNumber + "-damage.</p>");
 
     } else {
@@ -267,8 +260,12 @@ $(".initially-hidden").click(function() {
     $(".initially-hidden").show();
     $("#player1col, #player2col").hide();
     currentGame.switchPlayer();
-
   });
+
+  // $(".initially-hidden").click(function() {
+  //   $("#player1col, #player2col").show();
+  //   $(".initially-hidden").hide();
+  // });
 
 
 });
