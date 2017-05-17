@@ -38,7 +38,7 @@ function gameOver(opponent) {
   if (opponent.health <= 0) {
     $(".screen").hide();
     $("#win-screen").show();
-    $("#credits").delay(2500).animate({top: '-=1800px'}, 11000);
+    $("#credits").delay(3000).animate({top: '-=2350px'}, 14000);
   }
 }
 

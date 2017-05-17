@@ -14,7 +14,7 @@
   width: 1000px;
   height: 800px;
   position: relative;
-  margin: 60px 10% 0px 10%;
+  margin: 60px 0 0 10%;
   border-radius: 40px 40px 130px 40px;
 }
 .container {
@@ -31,6 +31,7 @@ body {
   background-color: #b3b1b2;
   font-family: early;
   color: #0f380f;
+  padding-right: 20%;
 }
 
 .row {
@@ -231,5 +232,5 @@ progress[value]::-webkit-progress-value {
 }
 
 #win-screen h4 {
-  margin-top: 50px;
+  margin-top: 370px;
 }
