@@ -14,8 +14,7 @@
   width: 1000px;
   height: 800px;
   position: relative;
-  margin-left: 10%;
-  margin-top: 60px;
+  margin: 60px 10% 0px 10%;
   border-radius: 40px 40px 130px 40px;
 }
 .container {
@@ -39,6 +38,10 @@ body {
 }
 
 .initially-hidden {
+  display: none;
+}
+
+.hidden-screen {
   display: none;
 }
 
@@ -77,6 +80,9 @@ body {
   background-position: top;
   opacity: .7;
   box-shadow: inset 12px 0 15px -4px rgba(0, 0, 0, 0.6), inset  -12px 0 8px -4px rgba(0, 0, 0, 0.6);
+  background-repeat: no-repeat;
+  background-color: #afc45f;
+  background-size: cover;
 }
 
 .pic-screen {
@@ -86,9 +92,10 @@ body {
 }
 
 #battlefield img {
-  height: 280px;
-  width: 280px;
-  margin-left: 20px;
+  height: 240px;
+  width: 240px;
+  margin-top: 120px;
+  margin-left: 30px;
 }
 
 /*/////////////////////interface/////////////////////////////////*/
@@ -148,6 +155,11 @@ progress[value]::-webkit-progress-value {
   outline-color: inherit;
 }
 
+.btn-default:disabled, .btn-default:disabled:hover {
+  background-color: #eaefdd;
+  color: #0f380f;
+}
+
 /*//////////////////////gameboy///////////////////////////////////*/
 #header {
   margin-left: 10%;
@@ -170,4 +182,27 @@ progress[value]::-webkit-progress-value {
 
 .wrapper {
   margin: 0 0 0 850px;
+}
+/*///////////////////////////hidden-screens////////////////////////*/
+#off-screen {
+  background-color: #0f380f;
+}
+
+#nintendo-screen img {
+  width: 500px;
+  margin: 200px 0 0 100px;
+}
+
+#game-logo {
+ text-align: center;
+ margin-top: 270px;
+}
+
+#game-logo h1 {
+  margin-top: -20px;
+  font-size: 7em;
+}
+
+#game-logo h3 {
+  font-size: 2.4em;
 }

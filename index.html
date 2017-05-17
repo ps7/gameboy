@@ -3,6 +3,7 @@
   <head>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/power-gameboy.js"></script>
     <link rel="stylesheet" href="css/button.css" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
@@ -10,11 +11,26 @@
   </head>
   <body>
     <div class="frame">
-      <div class="power-light powerOn">
+      <div class="power-light">
       </div>
       <div id="power-text">
         <p>BATTERY</p>
       </div>
+      <!-- screens -->
+      <div class="container hidden-screen" id="off-screen">
+
+      </div>
+      <div class="container hidden-screen" id="nintendo-screen">
+        <img src="img/nintendo-logo.png" alt="nintendo logo" />
+      </div>
+      <div class="container hidden-screen" id="game-screen">
+        <div id="game-logo">
+          <h3>Pokemon</h3>
+          <h1>ARENA</h1>
+        </div>
+
+      </div>
+      <!-- end screens -->
       <div class="container">
         <div class="row" id="battlefield">
           <div class="col-xs-6 pic-screen" id="player1pic-screen">
@@ -30,8 +46,8 @@
             <progress id="pl1-health" value="100" max="100">50%</progress>
             <p><span id="pl1-health-number">100</span>/100</p>
             <div class="attack-buttons" id="player1attack-buttons">
-              <button id="pl1-att1" type="button" class="btn-default">Attack 1</button>
-              <button id="pl1-att2" type="button" class="btn-default">Attack 2</button>
+              <button id="pl1-att1" type="button" class="btn-default player1button">Attack 1</button>
+              <button id="pl1-att2" type="button" class="btn-default player1button">Attack 2</button>
             </div>
           </div>
           <div class="col-xs-6 player-col" id="player2col">
@@ -39,8 +55,8 @@
             <progress id="pl2-health" value="100" max="100">100%</progress>
             <p><span id="pl2-health-number">100</span>/100</p>
             <div class="attack-buttons" id="player2attack-buttons">
-              <button id="pl2-att1" type="button" class="btn-default">Attack 1</button>
-              <button id="pl2-att2" type="button" class="btn-default">Attack 2</button>
+              <button id="pl2-att1" type="button" class="btn-default player2button" disabled>Attack 1</button>
+              <button id="pl2-att2" type="button" class="btn-default player2button" disabled>Attack 2</button>
             </div>
           </div>
           <div class="col-xs-12 initially-hidden" id="log">
