@@ -32,12 +32,17 @@ function getRandomInt() {
 // Game.prototype.appendString = function (x, y) {
 //   return "<p> " + x + " attacks " + y + "! </p>  <p>" + y + " sustains " + Game.currentNumber + " damage.</p>"
 // };
-
+var faint = new Audio('sounds/charmander.mp3')
+var end = new Audio('sounds/ending.mp3')
 //Game over condition evaluator function//
 function gameOver(opponent) {
   if (opponent.health <= 0) {
+    battle.pause();
+    faint.play();
     $(".screen").hide();
-    $("#win-screen").show();
+    $("#win-screen").show(function() {
+      end.play();
+    });
     $("#credits").delay(3000).animate({top: '-=2350px'}, 14000);
   }
 }
@@ -59,7 +64,7 @@ function gameOver(opponent) {
 //pikachu's attacks
 
 //pikachu attack 1
-Pokemon.prototype.attack1 = function (opponent) { debugger;
+Pokemon.prototype.attack1 = function (opponent) {
   var dieRoll = Math.floor(Math.random() * 10) +1;//die roll from 1-10 to decide if there's miss or crit
   var dieRoll2 = Math.floor(Math.random() * 4) + 8; //regular die roll that determines the base number for attacks
 
@@ -150,7 +155,7 @@ Pokemon.prototype.attack2 = function (opponent) {
 //
 //charzard's attacks
 //charzard attack 1
-Pokemon.prototype.charzAtt1 = function (opponent) { debugger;
+Pokemon.prototype.charzAtt1 = function (opponent) {
   var dieRoll = Math.floor(Math.random() * 10) +1;//die roll from 1-10 to decide if there's miss or crit
   var dieRoll2 = Math.floor(Math.random() * 4) + 8; //regular die roll that determines the base number for attacks
 
@@ -273,9 +278,13 @@ $("#log").click(function() {
 
 
 //HERE WE ARE WE'RE WORKING ON THIS ONE
-
+var attacksound1 = new Audio('sounds/thunderpunch.wav')
+var attacksound2 = new Audio('sounds/slash.wav')
+var specialsound1 = new Audio('sounds/thunder.wav')
+var specialsound2 = new Audio('sounds/flamethrower.wav')
   //attack button click functions
   $("#pl1-att1").click(function (){//when user clicks player 1's attack 1 button...
+    attacksound1.play();
     Pikachu.attack1(Charmander);//do Pikachu attack on Charmander
 
     if (currentGame.miss === true) {//if/else statement for miss and crit
@@ -298,6 +307,7 @@ $("#log").click(function() {
   });
 
   $("#pl1-att2").click(function (){//when user clicks player 1's attack 1 button...
+    specialsound1.play();
     Pikachu.attack2(Charmander);//do Pikachu attack on Charmander
     if (currentGame.miss === true) {
       $("#log").empty().append("<p>Pikachu Missed!</p><p>Charmander sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
@@ -318,6 +328,7 @@ $("#log").click(function() {
 //charmander click functions
 
   $("#pl2-att1").click(function (){//when user clicks player 1's attack 1 button...
+    attacksound2.play();
     Charmander.charzAtt1(Pikachu);//do Pikachu attack on Charmander
 
     if (currentGame.miss === true) {//if/else statement for miss and crit
@@ -340,6 +351,7 @@ $("#log").click(function() {
   });
 
   $("#pl2-att2").click(function (){//when user clicks player 1's attack 1 button...
+    specialsound2.play();
     Charmander.charzAtt2(Pikachu);//do Pikachu attack on Charmander
     if (currentGame.miss === true) {
       $("#log").empty().append("<p>Charmander Missed!</p><p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
