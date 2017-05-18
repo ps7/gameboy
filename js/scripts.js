@@ -22,16 +22,12 @@ function Game (currentNumber){
 };
 
 
-
 //random number generator functions
 function getRandomInt() {
   return Math.floor(Math.random() * 4) + 8;
 };
 
 
-// Game.prototype.appendString = function (x, y) {
-//   return "<p> " + x + " attacks " + y + "! </p>  <p>" + y + " sustains " + Game.currentNumber + " damage.</p>"
-// };
 var faint = new Audio('sounds/charmander.mp3')
 var end = new Audio('sounds/ending.mp3')
 //Game over condition evaluator function//
@@ -46,16 +42,6 @@ function gameOver(opponent) {
     $("#credits").delay(3000).animate({top: '-=2350px'}, 14000);
   }
 }
-
-//Pokemon attacks//
-// Pokemon.prototype.pikaAttack = function (opponent) {
-//   var num = getRandomInt() - 2;//set num to random integer beteween 1 and 10
-//   opponent.health -= num;//subtract num from oppponent health
-//   let health = document.getElementById("pl2-health")//set local scope variable for any elements with id pl2-health
-//   health.value -= num;//subtract num from the health attribute of the progress element selected
-//   gameOver(opponent);//check if the attack killed the opponent and display game over if so
-//   Game.currentNumber = num;
-// };
 
 
 
@@ -118,39 +104,7 @@ Pokemon.prototype.attack2 = function (opponent) {
   gameOver(opponent);
 };
 
-// Pokemon.prototype.pikaAttack2 = function (opponent) {//pika special attack
-//   var num = pikachuSpecial();//returns 0, 10 or a random integer in a certain range
-//   opponent.health -= num;
-//   let health = document.getElementById("pl2-health")
-//   health.value -= num;
-//   gameOver(opponent);
-//   Game.currentNumber = num;
-//   if (num === 0) {
-//     Game.miss = true;
-//     Game.crit = false;
-//   } else if (num === 10 ){
-//     Game.miss = false;
-//     Game.crit = true;
-//   } else if (num > 1) {
-//     Game.crit = false;
-//     Game.miss = false;
-//   };
-//   console.log(Game.miss);
-// };
 
-
-// function pikachuSpecial() {
-//   if (Math.floor(Math.random() * 10) + 1 === 1) {
-//     return 0;
-//   } else if (Math.floor(Math.random() * 10) + 1 === 10) {
-//     return 10;
-//   } else if (Charmander.pokemonType === "water") {
-//     return getRandomInt() * 2 + 9;
-//   } else {
-//     return getRandomInt() + 6;
-//   };
-// };
-//
 //charzard's attacks
 //charzard attack 1
 Pokemon.prototype.charzAtt1 = function (opponent) {
@@ -209,41 +163,30 @@ Pokemon.prototype.charzAtt2 = function (opponent) {
   gameOver(opponent);
 };
 
-//old charzard attacks
-// Pokemon.prototype.charAttack = function (opponent) {
-//   debugger;
-//   var num = getRandomInt();
-//   opponent.health -= num;
-//   let health = document.getElementById("pl1-health")
-//   health.value -= num;
-//   gameOver(opponent);
-//   currentGame.currentNumber = num;
-// }
-//
-// Pokemon.prototype.charAttack2 = function (opponent) {
-//   var num = charSpecial();
-//   opponent.health -= num;
-//   let health = document.getElementById("pl1-health")
-//   health.value -= num;
-//   gameOver(opponent);
-//   currentGame.currentNumber = num;
-// }
-//
-//
-// function charSpecial() {
-//   return getRandomInt() + 6 ;
-// };
-
 //potion protoype
 Pokemon.prototype.Heal = function () {
-  let health = document.getElementById("pl1-health")
-  if (this.health >= 80) {
-    this.health = 100;
-    health.value =100;
+  if (this.pokemonName === "Pikachu") {
+    let health = document.getElementById("pl1-health")
+    if (this.health >= 80) {
+      this.health = 100;
+      health.value =100;
+    } else {
+      this.health +=20;
+      health.value += 20;
+    }
   } else {
-    this.health +=20;
-    health.value += 20;
+    let health = document.getElementById("pl2-health")
+    if (this.health >= 80) {
+      this.health = 100;
+      health.value =100;
+    } else {
+      this.health +=20;
+      health.value += 20;
+    }
   }
+
+
+
 };
 
 //switch player
@@ -280,14 +223,13 @@ $(function() {
 //     $("#player1col, #player2col").hide();
 //   });
 
-$("#log").click(function() {
+$("#log").click(function() {// hide div that pops up to display hit damage, etc.
   $("#player1col, #player2col").show();
   $("#log").hide();
 });
 
 
 
-//HERE WE ARE WE'RE WORKING ON THIS ONE
 var attacksound1 = new Audio('sounds/thunderpunch.wav')
 var attacksound2 = new Audio('sounds/slash.wav')
 var specialsound1 = new Audio('sounds/thunder.wav')
@@ -406,31 +348,6 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
     $("#player1col, #player2col").hide();
     currentGame.switchPlayer();
   });
-
-
-  // $("#pl2-att1").click(function (){//when user clicks player 2's attack 1 button...
-  //   Charmander.charAttack(Pikachu);//do Charmander attack on Pikachu
-  //   $("#log").empty().append("<p>Charmander attacks Pikachu!</p> <p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
-  //   $("#pl1-health-number").text(Pikachu.health);
-  //   $("#log").show();
-  //   $("#player1col, #player2col").hide();
-  //   currentGame.switchPlayer();
-  //
-  // });
-  //
-  // $("#pl2-att2").click(function (){//when user clicks player 1's attack 1 button...
-  //   Charmander.charAttack2(Pikachu);//do Pikachu attack on Charmander
-  //   $("#log").empty().append("<p>Chamander attacks Pikachu!</p>  <p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
-  //   $("#pl1-health-number").text(Pikachu.health);
-  //   $("#log").show();
-  //   $("#player1col, #player2col").hide();
-  //   currentGame.switchPlayer();
-  // });
-
-  // $("#log").click(function() {
-  //   $("#player1col, #player2col").show();
-  //   $("#log").hide();
-  // });
 
 
 });
