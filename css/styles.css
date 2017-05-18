@@ -110,6 +110,9 @@ body {
   text-align: center;
 }
 
+#interface h2 {
+  margin-top: 42px;
+}
 #log {
   text-align: center;
   margin-top: 50px;
@@ -158,6 +161,10 @@ progress[value]::-webkit-progress-value {
 .btn-default:disabled, .btn-default:disabled:hover {
   background-color: #eaefdd;
   color: #0f380f;
+}
+
+.potion-button {
+  margin: 5px 0 0 4px;
 }
 
 /*//////////////////////gameboy///////////////////////////////////*/
