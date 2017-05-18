@@ -369,6 +369,9 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
 
   });
 
+  $("pl1-heal").click(function (){
+    //when you click heal button, a method is called on pikachu that puts his health up 20 pts
+  });
 
   // $("#pl2-att1").click(function (){//when user clicks player 2's attack 1 button...
   //   Charmander.charAttack(Pikachu);//do Charmander attack on Pikachu
