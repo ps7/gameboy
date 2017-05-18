@@ -40,7 +40,7 @@ function gameOver(opponent) {
     battle.pause();
     faint.play();
     $(".screen").hide();
-    $("#win-screen").show(function() {
+    $("#win-screen").toggleClass("hidden-screen", function() {
       end.play();
     });
     $("#credits").delay(3000).animate({top: '-=2350px'}, 14000);
