@@ -39,17 +39,17 @@ function gameOver(opponent) {
     faint.play();
     if (currentGame.currentPlayer === true) {
       $("#winner").text("Pikachu");
-      $("#player2pic-screen img").toggle("pulsate",2000);;
+      $("#player2pic-screen img").toggle("pulsate",2000);
     } else {
       $("#winner").text("Charmander");
-      $("#player1pic-screen img").toggle("pulsate",2000);;
+      $("#player1pic-screen img").toggle("pulsate",2000);
     }
     $("#interface").hide();
-    $(".screen").addClass("hidden-screen", 2500);
-    $("#win-screen").delay(2000).fadeIn(1000, function() {
+    $(".screen").delay(2000).fadeOut(1500);
+    $("#win-screen").delay(3500).fadeIn(1000, function() {
       end.play();
     });
-    $("#credits").delay(5500).animate({top: '-=2350px'}, 14000);
+    $("#credits").delay(7000).animate({top: '-=2350px'}, 14000);
   }
 }
 
@@ -204,13 +204,19 @@ Pokemon.prototype.Heal = function () {
 //switch player
 
 Game.prototype.switchPlayer = function () {
-  if (currentGame.currentPlayer === true) {
+  if (currentGame.currentPlayer === true) {//pikachu's turn
     $(".player1button").attr("disabled", true);
     $(".player2button").attr("disabled", false);
+    if (Charmander.potion === 0) {
+    $("#pl2-heal").attr("disabled", true);
+    }
     currentGame.currentPlayer = false;
-  } else {
+  } else {//Charmander's turn
     $(".player1button").attr("disabled", false);
     $(".player2button").attr("disabled", true);
+    if (Pikachu.potion === 0) {
+    $("#pl1-heal").attr("disabled", true);
+    }
     currentGame.currentPlayer = true;
   }
 };
@@ -305,7 +311,7 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
       $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu health restored to " + Pikachu.health + ".</p>");
       $("#log").empty().append("<p>Hey, pal! This is Pete Kachoo's last potion!</p>");
     } else {
-      $("#log").empty().append("<p>Charmander healed himself.  He IS a magician.</p><p>Charmander health restored to " + Charmander.health + ".</p>");
+      $("#log").empty().append("<p>Pikachu healed himself.  He's not a magician.</p><p>Pikachu health restored to " + Pikachu.health + ".</p>");
     }
     //when you click heal button, a method is called on pikachu that puts his health up 20 pts
 
