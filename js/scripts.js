@@ -200,13 +200,19 @@ Pokemon.prototype.Heal = function () {
 //switch player
 
 Game.prototype.switchPlayer = function () {
-  if (currentGame.currentPlayer === true) {
+  if (currentGame.currentPlayer === true) {//pikachu's turn
     $(".player1button").attr("disabled", true);
     $(".player2button").attr("disabled", false);
+    if (Charmander.potion === 0) {
+    $("#pl2-heal").attr("disabled", true);
+    }
     currentGame.currentPlayer = false;
-  } else {
+  } else {//Charmander's turn
     $(".player1button").attr("disabled", false);
     $(".player2button").attr("disabled", true);
+    if (Pikachu.potion === 0) {
+    $("#pl1-heal").attr("disabled", true);
+    }
     currentGame.currentPlayer = true;
   }
 };
