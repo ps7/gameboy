@@ -33,19 +33,23 @@ var faint = new Audio('sounds/charmander.mp3')
 var end = new Audio('sounds/ending.mp3')
 //Game over condition evaluator function//
 function gameOver(opponent) {
+  var angle = 0;
   if (opponent.health <= 0) {
     battle.pause();
     faint.play();
-    $(".screen").hide();
     if (currentGame.currentPlayer === true) {
       $("#winner").text("Pikachu");
+      $("#player2pic-screen img").toggle("pulsate",2000);;
     } else {
       $("#winner").text("Charmander");
+      $("#player1pic-screen img").toggle("pulsate",2000);;
     }
-    $("#win-screen").fadeIn(250, function() {
+    $("#interface").hide();
+    $(".screen").addClass("hidden-screen", 2500);
+    $("#win-screen").delay(2000).fadeIn(1000, function() {
       end.play();
     });
-    $("#credits").delay(3000).animate({top: '-=2350px'}, 14000);
+    $("#credits").delay(5500).animate({top: '-=2350px'}, 14000);
   }
 }
 
