@@ -17,7 +17,7 @@ Turn based game where each player has a pokemon and attacks the opposing pokemon
 * _Open "index.html"_
 
 ## gh-pages link
-[click here](https://dlopez6877.github.io/pokemon-game)
+[Click here](https://dlopez6877.github.io/pokemon-game)
 
 ## Specs
 | Behavior: this program | Inputs Example: when it receives | Output: it should return|
@@ -29,13 +29,13 @@ Turn based game where each player has a pokemon and attacks the opposing pokemon
 |For either attack on either pokemon, there is a 10% of getting a critical hit, which adds 8 to that attack|pokemon2 uses attack 2, gets base damage of 25|33 damage is inflicted on pokemon 1|
 |Pokemon 1's attack 2 has a 30% chance of missing|pokemon 1 uses attack 2| 3 out of 10 times, pokemon 2 sustains 0 damage|
 |Pokemon 2's attack 2 has a 50% chance of missing|pokemon 2 uses attack 2| 5 out of 10 times, pokemon 1 sustains 0 damage|
-|Each pokemon has 3 potions to use which restore their health by 20 points (unless they have 80 or greater health, in which case it restores it to 100)|
+|Each pokemon has 3 potions to use which restore their health by 20 points (unless they have 80 or greater health, in which case it restores it to 100)|Pokemon 1 click heal button|Pokemon 1 health increase 20|
 |After a player takes a turn their buttons become disabled and opponents are enabled|player one attacks| playaer 2's turn|
 |If either pokemon has no health after it's attacked, pokemon 1 wins|pokemon 2 health = 0|pokemon 1 wins|
 
 ## Known Bugs
 
-none
+None
 
 ## Support and contact details
 
