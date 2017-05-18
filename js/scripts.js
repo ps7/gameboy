@@ -39,17 +39,17 @@ function gameOver(opponent) {
     faint.play();
     if (currentGame.currentPlayer === true) {
       $("#winner").text("Pikachu");
-      $("#player2pic-screen img").toggle("pulsate",2000);;
+      $("#player2pic-screen img").toggle("pulsate",2000);
     } else {
       $("#winner").text("Charmander");
-      $("#player1pic-screen img").toggle("pulsate",2000);;
+      $("#player1pic-screen img").toggle("pulsate",2000);
     }
     $("#interface").hide();
-    $(".screen").addClass("hidden-screen", 2500);
-    $("#win-screen").delay(2000).fadeIn(1000, function() {
+    $(".screen").delay(2000).fadeOut(1500);
+    $("#win-screen").delay(3500).fadeIn(1000, function() {
       end.play();
     });
-    $("#credits").delay(5500).animate({top: '-=2350px'}, 14000);
+    $("#credits").delay(7000).animate({top: '-=2350px'}, 14000);
   }
 }
 
