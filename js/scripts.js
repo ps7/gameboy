@@ -11,6 +11,7 @@ function Pokemon (name, health, type, miss, crit) {
   this.pokemonType = type;
   this.miss = miss;
   this.crit = crit;
+  this.potion = 3;
 };
 //Lena help
 function Game (currentNumber){
@@ -165,7 +166,7 @@ Pokemon.prototype.charzAtt2 = function (opponent) {
 
 //potion protoype
 Pokemon.prototype.Heal = function () {
-  if (this.pokemonName === "Pikachu") {
+  if (this.pokemonName === "Pikachu" && this.potion >0) {
     let health = document.getElementById("pl1-health")
     if (this.health >= 80) {
       this.health = 100;
@@ -174,7 +175,9 @@ Pokemon.prototype.Heal = function () {
       this.health +=20;
       health.value += 20;
     }
-  } else {
+    this.potion -= 1;
+    console.log(this.potion);
+  } else if (this.pokemonName === "Charmander" && this.potion >0) {
     let health = document.getElementById("pl2-health")
     if (this.health >= 80) {
       this.health = 100;
@@ -183,8 +186,8 @@ Pokemon.prototype.Heal = function () {
       this.health +=20;
       health.value += 20;
     }
+    this.potion -= 1;
   }
-
 
 
 };
@@ -284,14 +287,23 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
 //pikachu heal click function
   $("#pl1-heal").click(function (){
     Pikachu.Heal();
-    $("#pl1-health-number").text(Pikachu.health);
+    if (Pikachu.potion === 0){
+      $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu health restored to " + Pikachu.health + ".</p>");
+      $("#log").empty().append("<p>Hey, pal! This is Pete Kachoo's last potion!</p>");
+    } else {
+      $("#log").empty().append("<p>Charmander healed himself.  He IS a magician.</p><p>Charmander health restored to " + Charmander.health + ".</p>");
+    }
     //when you click heal button, a method is called on pikachu that puts his health up 20 pts
-    $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu health restored to " + Pikachu.health + ".</p>");
+
+    $("#PikachuPotion").text(Pikachu.potion);
     $("#pl1-health-number").text(Pikachu.health);
     $("#log").show();
     $("#player1col, #player2col").hide();
     currentGame.switchPlayer();
   });
+
+
+
 
 
 //charmander click functions
@@ -340,9 +352,14 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
 //charmander heal potion
   $("#pl2-heal").click(function (){
     Charmander.Heal();
-    $("#pl2-health-number").text(Charmander.health);
+    if (Charmander.potion === 0){
+      $("#log").empty().append("<p>Charmander healed himself.  He IS a magician.</p><p>Charmander health restored to " + Charmander.health + ".</p>");
+      $("#log").empty().append("<p>Thus is Charles Mander's last potion!</p>");
+    } else {
+      $("#log").empty().append("<p>Charmander healed himself.  He IS a magician.</p><p>Charmander health restored to " + Charmander.health + ".</p>");
+    }
     //when you click heal button, a method is called on pikachu that puts his health up 20 pts
-    $("#log").empty().append("<p>Charmander healed himself.  He IS a magician.</p><p>Charmander health restored to " + Charmander.health + ".</p>");
+    $("#CharmanderPotion").text(Charmander.potion);
     $("#pl2-health-number").text(Charmander.health);
     $("#log").show();
     $("#player1col, #player2col").hide();
