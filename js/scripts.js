@@ -40,6 +40,11 @@ function gameOver(opponent) {
     battle.pause();
     faint.play();
     $(".screen").hide();
+    if (currentGame.currentPlayer === true) {
+      $("#winner").text("Pikachu");
+    } else {
+      $("#winner").text("Charmander");
+    }
     $("#win-screen").fadeIn(250, function() {
       end.play();
     });
