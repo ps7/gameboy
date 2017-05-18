@@ -54,7 +54,6 @@ function gameOver(opponent) {
 }
 
 
-
 //pikachu's attacks
 
 //pikachu attack 1
@@ -308,11 +307,10 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
   $("#pl1-heal").click(function (){
     Pikachu.Heal();
     if (Pikachu.potion === 0){
-      $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu health restored to " + Pikachu.health + ".</p>");
+      $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu health restored 20 health!</p>");
       $("#log").empty().append("<p>Hey, pal! This is Pete Kachoo's last potion!</p>");
     } else {
-      $("#log").empty().append("<p>Pikachu healed himself.  He's not a magician.</p><p>Pikachu health restored to " + Pikachu.health + ".</p>");
-    }
+      $("#log").empty().append("<p>Pikachu healed himself.  He's not a magician.</p><p>Pikachu health restored 20 health!</p>");
     //when you click heal button, a method is called on pikachu that puts his health up 20 pts
 
     $("#PikachuPotion").text(Pikachu.potion);
