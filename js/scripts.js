@@ -37,7 +37,12 @@ function gameOver(opponent) {
     battle.pause();
     faint.play();
     $(".screen").hide();
-    $("#win-screen").toggleClass("hidden-screen", function() {
+    if (currentGame.currentPlayer === true) {
+      $("#winner").text("Pikachu");
+    } else {
+      $("#winner").text("Charmander");
+    }
+    $("#win-screen").fadeIn(250, function() {
       end.play();
     });
     $("#credits").delay(3000).animate({top: '-=2350px'}, 14000);
@@ -250,9 +255,11 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
       currentGame.miss = false;
 
     } else if (currentGame.crit === true) {
+      $("#player2pic-screen").effect("shake", {times:6, distance:40}, 1100);
       $("#log").empty().append("<p>Critical hit!</p><p>Charmander sustains MASSIVE " + currentGame.currentNumber + "-damage.</p>");
       currentGame.crit = false;
     } else {
+      $("#player2pic-screen").effect("shake");
       $("#log").empty().append("<p>Pikachu attacks Charmander!</p> <p>Charmander sustains " + currentGame.currentNumber + " damage!</p>");
     };
     //end of if - else statement
@@ -272,11 +279,14 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
       $("#log").empty().append("<p>Pikachu Missed!</p><p>Charmander sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
       currentGame.miss = false;
     } else if (currentGame.crit === true) {
+      $("#player2pic-screen").effect("shake", {times:6, distance:40}, 1100);
       $("#log").empty().append("<p>Critical hit!</p><p>Charmander sustains MASSIVE " + currentGame.currentNumber + "-damage.</p>");
       currentGame.crit = false;
     } else {
+      $("#player2pic-screen").effect("shake");
       $("#log").empty().append("<p>Pikachu attacks Charmander!</p> <p>Charmander sustains " + currentGame.currentNumber + " damage!</p>");
-    };//display damage done info to user in log div
+    };
+    //display damage done info to user in log div
     $("#pl2-health-number").text(Charmander.health);
     $("#log").show();
     $("#player1col, #player2col").hide();
@@ -317,9 +327,11 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
       currentGame.miss = false;
 
     } else if (currentGame.crit === true) {
+      $("#player1pic-screen").effect("shake", {times:6, distance:40}, 1100);
       $("#log").empty().append("<p>Critical hit!</p><p>Pikachu sustains MASSIVE " + currentGame.currentNumber + "-damage.</p>");
       currentGame.crit = false;
     } else {
+      $("#player1pic-screen").effect("shake");
       $("#log").empty().append("<p>Charmander attacks Pikachu!</p> <p>Pikachu sustains " + currentGame.currentNumber + " damage!</p>");
     };
     //end of if - else statement
@@ -338,9 +350,11 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
       $("#log").empty().append("<p>Charmander Missed!</p><p>Pikachu sustains " + currentGame.currentNumber + " damage.</p>");//display damage done info to user in log div
       currentGame.miss = false;
     } else if (currentGame.crit === true) {
+      $("#player1pic-screen").effect("shake", {times:6, distance:40}, 1100);
       $("#log").empty().append("<p>Critical hit!</p><p>Pikachu sustains MASSIVE " + currentGame.currentNumber + "-damage.</p>");
       currentGame.crit = false;
     } else {
+      $("#player1pic-screen").effect("shake");
       $("#log").empty().append("<p>Charmander attacks Pikachu!</p> <p>Pikachu sustains " + currentGame.currentNumber + " damage!</p>");
     };//display damage done info to user in log div
     $("#pl1-health-number").text(Pikachu.health);
