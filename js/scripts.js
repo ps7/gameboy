@@ -307,7 +307,7 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
       $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu health restored to " + Pikachu.health + ".</p>");
       $("#log").empty().append("<p>Hey, pal! This is Pete Kachoo's last potion!</p>");
     } else {
-      $("#log").empty().append("<p>Charmander healed himself.  He IS a magician.</p><p>Charmander health restored to " + Charmander.health + ".</p>");
+      $("#log").empty().append("<p>Pikachu healed himself.  He's not a magician.</p><p>Pikachu health restored to " + Pikachu.health + ".</p>");
     }
     //when you click heal button, a method is called on pikachu that puts his health up 20 pts
 
