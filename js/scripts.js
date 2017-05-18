@@ -59,8 +59,6 @@ function gameOver(opponent) {
 
 
 
-
-
 //pikachu's attacks
 
 //pikachu attack 1
@@ -236,6 +234,18 @@ Pokemon.prototype.charzAtt2 = function (opponent) {
 //   return getRandomInt() + 6 ;
 // };
 
+//potion protoype
+Pokemon.prototype.Heal = function () {
+  let health = document.getElementById("pl1-health")
+  if (this.health >= 80) {
+    this.health = 100;
+    health.value =100;
+  } else {
+    this.health +=20;
+    health.value += 20;
+  }
+};
+
 //switch player
 
 Game.prototype.switchPlayer = function () {
@@ -282,7 +292,10 @@ var attacksound1 = new Audio('sounds/thunderpunch.wav')
 var attacksound2 = new Audio('sounds/slash.wav')
 var specialsound1 = new Audio('sounds/thunder.wav')
 var specialsound2 = new Audio('sounds/flamethrower.wav')
-  //attack button click functions
+
+
+  //pikachu click functions
+
   $("#pl1-att1").click(function (){//when user clicks player 1's attack 1 button...
     attacksound1.play();
     Pikachu.attack1(Charmander);//do Pikachu attack on Charmander
@@ -306,6 +319,7 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
     currentGame.switchPlayer();
   });
 
+
   $("#pl1-att2").click(function (){//when user clicks player 1's attack 1 button...
     specialsound1.play();
     Pikachu.attack2(Charmander);//do Pikachu attack on Charmander
@@ -324,6 +338,19 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
     currentGame.switchPlayer();
 
   });
+
+//pikachu heal click function
+  $("#pl1-heal").click(function (){
+    Pikachu.Heal();
+    $("#pl1-health-number").text(Pikachu.health);
+    //when you click heal button, a method is called on pikachu that puts his health up 20 pts
+    $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu health restored to " + Pikachu.health + ".</p>");
+    $("#pl1-health-number").text(Pikachu.health);
+    $("#log").show();
+    $("#player1col, #player2col").hide();
+    currentGame.switchPlayer();
+  });
+
 
 //charmander click functions
 
@@ -366,12 +393,20 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
     $("#log").show();
     $("#player1col, #player2col").hide();
     currentGame.switchPlayer();
-
   });
 
-  $("pl1-heal").click(function (){
+//charmander heal potion
+  $("#pl2-heal").click(function (){
+    Charmander.Heal();
+    $("#pl2-health-number").text(Charmander.health);
     //when you click heal button, a method is called on pikachu that puts his health up 20 pts
+    $("#log").empty().append("<p>Charmander healed himself.  He IS a magician.</p><p>Charmander health restored to " + Charmander.health + ".</p>");
+    $("#pl2-health-number").text(Charmander.health);
+    $("#log").show();
+    $("#player1col, #player2col").hide();
+    currentGame.switchPlayer();
   });
+
 
   // $("#pl2-att1").click(function (){//when user clicks player 2's attack 1 button...
   //   Charmander.charAttack(Pikachu);//do Charmander attack on Pikachu
