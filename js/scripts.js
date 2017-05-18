@@ -307,10 +307,11 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
   $("#pl1-heal").click(function (){
     Pikachu.Heal();
     if (Pikachu.potion === 0){
-      $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu health restored 20 health!</p>");
-      $("#log").empty().append("<p>Hey, pal! This is Pete Kachoo's last potion!</p>");
+      $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu restored 20 health!</p>");
+      $("#log").empty().append("<p>Hey, pal!</p><p>This is Pete Kachoo's last potion!</p><p>Beware!</p>");
     } else {
-      $("#log").empty().append("<p>Pikachu healed himself.  He's not a magician.</p><p>Pikachu health restored 20 health!</p>");
+      $("#log").empty().append("<p>Pikachu used potion!</p><p> He's not a magician.</p><p>Pikachu restored 20 health!</p>");
+    }
     //when you click heal button, a method is called on pikachu that puts his health up 20 pts
 
     $("#PikachuPotion").text(Pikachu.potion);
@@ -375,10 +376,10 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
   $("#pl2-heal").click(function (){
     Charmander.Heal();
     if (Charmander.potion === 0){
-      $("#log").empty().append("<p>Charmander healed himself.  He IS a magician.</p><p>Charmander health restored to " + Charmander.health + ".</p>");
-      $("#log").empty().append("<p>Thus is Charles Mander's last potion!</p>");
+      $("#log").empty().append("<p>Charmander heals!</p><p>He is a magician!!!</p><p>Charmander restored 20 health!</p>");
+      $("#log").empty().append("<p>Hey Pal!</p><p>This is Charles Mander's last potion!</p><p>Beware!</p>");
     } else {
-      $("#log").empty().append("<p>Charmander healed himself.  He IS a magician.</p><p>Charmander health restored to " + Charmander.health + ".</p>");
+      $("#log").empty().append("<p>Charmander heals!</p><p>He is a magician!!!</p><p>Charmander restored 20 health!</p>");
     }
     //when you click heal button, a method is called on pikachu that puts his health up 20 pts
     $("#CharmanderPotion").text(Charmander.potion);
