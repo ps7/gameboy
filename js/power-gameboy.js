@@ -1,8 +1,9 @@
 
+var audio = new Audio('sounds/startup.mp3');
+var battle = new Audio('sounds/battle.mp3');
+battle.loop = true;
+
 $(function() {
-  var audio = new Audio('sounds/startup.mp3');
-  var battle = new Audio('sounds/battle.mp3');
-  battle.loop = true;
   $(".wrapper").click(function() {
     if($(".power-light").hasClass("powerOn")) {
       location.reload();
