@@ -2,6 +2,7 @@
 <html>
   <head>
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/power-gameboy.js"></script>
     <link rel="stylesheet" href="css/button.css" type="text/css">
@@ -90,7 +91,7 @@
         </div>
       </div>
       <!-- end screens -->
-      <div class="container screen hidden-screen" id="play-screen">
+      <div class="container screen" id="play-screen">
         <div class="row" id="battlefield">
           <div class="col-xs-6 pic-screen" id="player1pic-screen">
             <img src="img/pikachu.png" alt="pikachu" />
@@ -103,21 +104,21 @@
           <div class="col-xs-6 player-col" id="player1col">
             <h2>Pikachu</h2>
             <progress id="pl1-health" value="100" max="100">50%</progress>
-            <p><span id="pl1-health-number">100</span>/100</p>
+            <p>HP:<span id="pl1-health-number">100</span>/100</p>
             <div class="attack-buttons" id="player1attack-buttons">
-              <button id="pl1-att1" type="button" class="btn-default player1button">Tackle</button>
+              <button id="pl1-att1" type="button" class="btn-default player1button">Growl</button>
               <button id="pl1-att2" type="button" class="btn-default player1button">Thunder</button>
-              <button id="pl1-heal" type="button" class="btn-default player1button">Heal Potion</button>
+              <button id="pl1-heal" type="button" class="btn-default player1button potion-button">Heal Potion</button> x<span id="PikachuPotion">3</span>
             </div>
           </div>
           <div class="col-xs-6 player-col" id="player2col">
             <h2>Charmander</h2>
             <progress id="pl2-health" value="100" max="100">100%</progress>
-            <p><span id="pl2-health-number">100</span>/100</p>
+            <p>HP:<span id="pl2-health-number">100</span>/100</p>
             <div class="attack-buttons" id="player2attack-buttons">
               <button id="pl2-att1" type="button" class="btn-default player2button" disabled>Slash</button>
-              <button id="pl2-att2" type="button" class="btn-default player2button" disabled>Ignite</button>
-              <button id="pl2-heal" type="button" class="btn-default player2button" disabled>Heal Potion</button>
+              <button id="pl2-att2" type="button" class="btn-default player2button" disabled>Inferno</button>
+              <button id="pl2-heal" type="button" class="btn-default player2button potion-button" disabled>Heal Potion</button> x<span id="CharmanderPotion">3</span>
             </div>
           </div>
           <div class="col-xs-12 initially-hidden" id="log">
