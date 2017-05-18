@@ -1,5 +1,6 @@
 var audio = new Audio('sounds/startup.mp3');
 var battle = new Audio('sounds/battle.mp3');
+battle.loop = true;
 
 $(function() {
   $(".wrapper").click(function() {

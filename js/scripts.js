@@ -13,10 +13,9 @@ function Pokemon (name, health, type, miss, crit) {
   this.crit = crit;
   this.potion = 3;
 };
-//Lena help
+
 function Game (currentNumber){
   this.currentNumber = currentNumber;
-  // this.players=[];
   this.currentPlayer = true;
   this.miss = false;
   this.crit = false;
@@ -60,10 +59,10 @@ function gameOver(opponent) {
 //pikachu attack 1
 Pokemon.prototype.attack1 = function (opponent) {
   var dieRoll = Math.floor(Math.random() * 10) +1;//die roll from 1-10 to decide if there's miss or crit
-  var dieRoll2 = Math.floor(Math.random() * 4) + 8; //regular die roll that determines the base number for attacks
+  var dieRoll2 = Math.floor(Math.random() * 4) + 8; //regular die roll from 8-11
 
   if (dieRoll === 1) {
-    currentGame.currentNumber = 0;
+    currentGame.currentNumber = 0;//amount of damage
     currentGame.miss = true;
 
   } else if (dieRoll === 10) {
@@ -89,13 +88,13 @@ Pokemon.prototype.attack1 = function (opponent) {
 
 Pokemon.prototype.attack2 = function (opponent) {
   var dieRoll = Math.floor(Math.random() * 10) +1;//die roll from 1-10 to decide if there's miss or crit
-  var dieRoll2 = Math.floor(Math.random() * 4) + 8; //regular die roll that determines the base number for attacks
+  var dieRoll2 = Math.floor(Math.random() * 5) + 15; //regular die roll that determines the base number for attacks
 
-  if (dieRoll === 1) {
+  if (dieRoll === 1 || dieRoll === 2 || dieRoll === 3) {
     currentGame.currentNumber = 0;
     currentGame.miss = true;
 
-  } else if (dieRoll === 10) {
+  } else if (dieRoll === 10 ) {
     var criticalDieRoll = dieRoll2 + 8;
     currentGame.currentNumber = criticalDieRoll;
     currentGame.crit = true;
@@ -148,9 +147,9 @@ Pokemon.prototype.charzAtt1 = function (opponent) {
 
 Pokemon.prototype.charzAtt2 = function (opponent) {
   var dieRoll = Math.floor(Math.random() * 10) +1;//die roll from 1-10 to decide if there's miss or crit
-  var dieRoll2 = Math.floor(Math.random() * 4) + 8; //regular die roll that determines the base number for attacks
+  var dieRoll2 = Math.floor(Math.random() * 11) + 20; //regular die roll that determines the base number for attacks
 
-  if (dieRoll === 1) {
+  if (dieRoll === 1 || dieRoll === 2 || dieRoll === 3 || dieRoll === 4 || dieRoll == 5) {
     currentGame.currentNumber = 0;
     currentGame.miss = true;
 
@@ -322,10 +321,6 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
     currentGame.switchPlayer();
   });
 
-
-
-
-
 //charmander click functions
 
   $("#pl2-att1").click(function (){//when user clicks player 1's attack 1 button...
@@ -373,7 +368,7 @@ var specialsound2 = new Audio('sounds/flamethrower.wav')
     currentGame.switchPlayer();
   });
 
-//charmander heal potion
+  //charmander heal potion
   $("#pl2-heal").click(function (){
     Charmander.Heal();
     if (Charmander.potion === 0){
