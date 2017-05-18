@@ -210,6 +210,8 @@ Game.prototype.switchPlayer = function () {
     $("#pl2-heal").attr("disabled", true);
     }
     currentGame.currentPlayer = false;
+    $("#player2col").append("<h1><span class='glyphicon glyphicon-triangle-top' aria-hidden='true'></span></h1>");
+    $("#player1col h1").last().remove();
   } else {//Charmander's turn
     $(".player1button").attr("disabled", false);
     $(".player2button").attr("disabled", true);
@@ -217,6 +219,8 @@ Game.prototype.switchPlayer = function () {
     $("#pl1-heal").attr("disabled", true);
     }
     currentGame.currentPlayer = true;
+    $("#player1col").append("<h1><span class='glyphicon glyphicon-triangle-top' aria-hidden='true'></span></h1>");
+    $("#player2col h1").last().remove();
   }
 };
 
