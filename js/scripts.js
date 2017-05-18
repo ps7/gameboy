@@ -249,11 +249,11 @@ $("#log").click(function() {// hide div that pops up to display hit damage, etc.
 });
 
 
-
 var attacksound1 = new Audio('sounds/thunderpunch.wav')
 var attacksound2 = new Audio('sounds/slash.wav')
 var specialsound1 = new Audio('sounds/thunder.wav')
 var specialsound2 = new Audio('sounds/flamethrower.wav')
+
 
 
   //pikachu click functions
