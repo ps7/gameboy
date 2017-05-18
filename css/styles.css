@@ -31,7 +31,6 @@ body {
   background-color: #b3b1b2;
   font-family: early;
   color: #0f380f;
-  padding-right: 20%;
 }
 
 .row {
@@ -217,6 +216,7 @@ progress[value]::-webkit-progress-value {
 #credits{
   animation: 60s credits linear infinite;
   position: relative;
+  padding: 10px;
 }
 
 #win-screen h1 {
