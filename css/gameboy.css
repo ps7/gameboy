@@ -37,7 +37,7 @@ body {
   box-shadow: inset 0px 0px 20px 10px rgba(0, 0, 0, 0.6);
 }
 
-.hidden-screen {
+.hidden-screen, .d-pad .icon-off:after {
   display: none;
 }
 
@@ -95,14 +95,15 @@ body {
   margin: 23% 0 0 5%;
 }
 
+/*buttons*/
 #power-button {
-  margin: 0 0 0 850px;
+  margin: -80px 0 0 900px;
 }
 
 #a-button, #b-button {
   width: 100px;
   height: 100px;
-  margin: -80px 0 0 450px;
+  margin: 50px 0 0 850px;
 }
 
 #a-button label, #b-button label  {
@@ -114,7 +115,40 @@ body {
 }
 
 #b-button {
-  margin: 0 0 0 300px;
+  margin: 0px 0 0 700px;
+}
+ /*d-pad*/
+ .d-pad {
+   position: absolute;
+ }
+
+.d-pad label{
+  border-radius: 0;
+  width: 40%;
+  height: 40%;
+  float: left;
+  background: #29292c;
+}
+
+#d-up {
+  margin: 50px 0 0 200px;
+}
+
+#d-right {
+  margin: 100px 0 0 150px;
+}
+
+#d-down {
+  margin: 150px 0 0 200px;
+}
+
+#d-left {
+  margin: 100px 0 0 250px;
+}
+
+#d-center {
+  margin: 100px 0 0 200px;
+  z-index: -100;
 }
 
 @media ( max-height: 1050px ) {
@@ -124,7 +158,7 @@ body {
     width: 700px;
     height: 560px;
     position: relative;
-    margin: 2.5% 0 2.5% 5%;
+    margin: 2.5% 0 2.5% 2.5%;
     border-radius: 28px 28px 91px 28px;
     float: left;
   }
@@ -181,12 +215,31 @@ body {
     float: left;
     width: 100px;
     height: 100px;
-    margin: 60px 0 0 200px;
+    margin: 50px 0 0 250px;
   }
 
   #b-button {
-    margin: 40px 0 0 60px;
+    margin-top: 40px;
   }
 
+  #d-up {
+    margin: 350px 0 0 825px;
+  }
+
+  #d-right {
+    margin: 400px 0 0 775px;
+  }
+
+  #d-down {
+    margin: 450px 0 0 825px;
+  }
+
+  #d-left {
+    margin: 400px 0 0 875px;
+  }
+
+  #d-center {
+    margin: 400px 0 0 825px;
+  }
 
 }
