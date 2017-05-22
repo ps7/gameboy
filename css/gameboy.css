@@ -1,0 +1,114 @@
+/*/////////////////////fonts/////////////////////////////////*/
+@font-face {
+  font-family: early;
+  src: url(../fonts/Early_GameBoy.ttf);
+}
+@font-face {
+  font-family: nintendo;
+  src: url(../fonts/nintendo.ttf);
+}
+
+/*/////////////////////general/////////////////////////////////*/
+html {
+  width: 115%;
+}
+
+body {
+  background-color: #b3b1b2;
+  font-family: early;
+  color: #0f380f;
+}
+
+.frame {
+  background-color: #6e7884;
+  width: 1000px;
+  height: 800px;
+  position: relative;
+  margin: 5% 5% 0 5%;
+  border-radius: 40px 40px 130px 40px;
+}
+.gameboy {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background-color: #CADC9F;
+  margin: 5% 15%;
+  padding: 0px;
+  box-shadow: inset 0px 0px 20px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hidden-screen {
+  display: none;
+}
+
+/*/////////////////////gameboy/////////////////////////////////*/
+.power-light {
+  width: 20px;
+  height: 20px;
+  background-color: #3b272c;
+  border: thin solid black;
+  border-radius: 100%;
+  float: left;
+  margin: 300px 0 0 35px;
+}
+
+.powerOn {
+  background-color: #fc0265;
+  box-shadow: 0 0 10px 1px #fc0265;
+  border: 2px solid grey;
+}
+
+#power-text {
+  float: left;
+  margin: 330px 0 0 -25px;
+  color: #ddd;
+  font-family: Gill Sans MT;
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+#case {
+  margin-left: 10%;
+  font-family: nintendo;
+  color: #142577;
+}
+
+#logo {
+  font-family: Gill Sans MT;
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 80px;
+  font-weight: bolder;
+}
+
+#tm {
+  font-family: sans-serif;
+  font-size: 30px;
+}
+
+#off-screen {
+  background-color: #0f380f;
+}
+
+#nintendo-screen img {
+  width: 500px;
+  margin: 200px 0 0 100px;
+}
+
+#game-logo {
+ text-align: center;
+ margin-top: 270px;
+}
+
+#game-logo h1 {
+  margin-top: -20px;
+  font-size: 7em;
+}
+
+#game-logo h3 {
+  font-size: 2.4em;
+}
+
+.wrapper {
+  margin: 0 0 0 850px;
+}

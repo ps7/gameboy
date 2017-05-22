@@ -2,13 +2,10 @@
 <html>
   <head>
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/power-gameboy.js"></script>
+    <script src="js/gameboy.js"></script>
     <link rel="stylesheet" href="css/button.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
-    <title>Pokemon</title>
+    <link rel="stylesheet" href="css/gameboy.css" type="text/css">
+    <title>Gameboy</title>
   </head>
   <body>
     <div class="frame">
@@ -18,118 +15,26 @@
         <p>BATTERY</p>
       </div>
       <!-- screens -->
-      <div class="container" id="off-screen">
+      <div class="gameboy" id="off-screen">
 
       </div>
-      <div class="container screen hidden-screen" id="nintendo-screen">
+
+      <div class="gameboy screen hidden-screen" id="nintendo-screen">
         <img src="img/nintendo-logo.png" alt="nintendo logo" />
       </div>
-      <div class="container screen hidden-screen" id="logo-screen">
+
+      <!-- <div class="gameboy screen hidden-screen" id="logo-screen">
         <div id="game-logo">
           <h3>Pokemon</h3>
           <h1>ARENA</h1>
         </div>
-      </div>
-      <div class="container hidden-screen" id="win-screen">
-        <div id="credits">
-          <h1>Game over.</h1>
-          <h2><span id="winner"></span></h2>
-          <h3>wins!</h3>
-          <h2>CREDITS</h2>
-          <p>
-            Pokemon Arena<br><br>
+      </div> -->
 
-            Pokemon game, 5/18/2017<br><br>
+      <!-- <div class="gameboy screen hidden-screen" id="play-screen">
+      </div> -->
 
-            By Daniel Lopez, Michael Koceja, Brendan Hanna, Jordan Mysliwiec <br><br>
-
-            Description <br><br>
-
-            Turn based game where each player has a pokemon and attacks the opposing pokemon.<br><br>
-
-            Setup/Installation Requirements <br><br>
-
-            Click on gh-pages link <br>
-            OR<br>
-            clone repository<br>
-            open "pokemon-game" folder<br>
-            open .index.html<br><br>
-
-            gh-pages link<br>
-            [click here](https://dlopez6877.github.io/pokemon-game)<br><br>
-
-            Specs<br>
-            | Behavior: this program | Inputs Example: when it receives | Output: it should return|<br>
-            |------------------|:-------------:|------:|<br>
-            |If pokemon 1 uses attack 1 pokemon 2 takes damage|pokemon 1 uses attack|pokemon 2 sustains x damage|<br>
-            |If pokemon 2 has no health pokemon 1 wins|pokemon 2 health = 0|pokemon 1 wins|<br>
-            |If pokemon 1 uses special attack pokemon 2 takes special damage|pokemon uses attack 2|pokemon 2 sustains x*2 damage|<br>
-            |Each attack has a chance to miss or crit|miss / crit|0 damage / x damage *2|<br>
-            |If pokemon 2 has no health pokemon 1 wins|pokemon 2 health = 0|pokemon 1 wins|<br>
-            |After a player takes a turn their buttons become disabled and opponents are enabled|player one attacks| playaer 2's turn|<br>
-            |Each player has 2 pokemon|player one|pikachu and bulbasaur|<br>
-            |Each player has an option to switch pokemon|player one clicks change pokemon|pikachu returns bulbasaur appears|<br>
-            |When one of a players pokemon dies the pokemon is removed and the other pokemon appears|pikachu dies|bulbasaur|<br>
-            |When all of a players pokemon dies the game ends|pikachu dies and bulbasaur is dead|player 2 wins|<br><br>
-
-
-            Support and contact details<br><br>
-
-            e-mail dlopez6877@gmail.com<br><br>
-
-            Technologies Used<br><br>
-
-            css, jquery, javascipt, bootstrap, atom, gitbash<br><br>
-
-            License<br><br>
-
-            MIT<br><br>
-
-            Copyright (c) 2017 Daniel Lopez, Michael Koceja, Brendan Hanna, Jordan Mysliwiec
-          </p>
-          <h4>Thanks for checking out our game!</h4>
-        </div>
-      </div>
-      <!-- end screens -->
-      <div class="container screen hidden-screen" id="play-screen"> <!-- take out hidden screen class to skip loading screen -->
-        <div class="row" id="battlefield">
-          <div class="col-xs-6 pic-screen" id="player1pic-screen">
-            <img src="img/pikachu.png" alt="pikachu" />
-          </div>
-          <div class="col-xs-6 pic-screen" id="player2pic-screen">
-            <img src="img/charmander.png" alt="charmander" />
-          </div>
-        </div><!--end battlefield row-->
-        <div class="row" id="interface">
-          <div class="col-xs-6 player-col" id="player1col">
-            <h2>Pikachu</h2>
-            <progress id="pl1-health" value="100" max="100">50%</progress>
-            <p>HP:<span id="pl1-health-number">100</span>/100</p>
-            <div class="attack-buttons" id="player1attack-buttons">
-              <button id="pl1-att1" type="button" class="btn-default player1button">Growl</button>
-              <button id="pl1-att2" type="button" class="btn-default player1button">Thunder</button>
-              <button id="pl1-heal" type="button" class="btn-default player1button potion-button">Heal Potion</button> x<span id="PikachuPotion">3</span>
-            </div>
-            <h1><span class='glyphicon glyphicon-triangle-top' aria-hidden='true'></span></h1>
-          </div>
-          <div class="col-xs-6 player-col" id="player2col">
-            <h2>Charmander</h2>
-            <progress id="pl2-health" value="100" max="100">100%</progress>
-            <p>HP:<span id="pl2-health-number">100</span>/100</p>
-            <div class="attack-buttons" id="player2attack-buttons">
-              <button id="pl2-att1" type="button" class="btn-default player2button" disabled>Slash</button>
-              <button id="pl2-att2" type="button" class="btn-default player2button" disabled>Inferno</button>
-              <button id="pl2-heal" type="button" class="btn-default player2button potion-button" disabled>Heal Potion</button> x<span id="CharmanderPotion">3</span>
-            </div>
-          </div>
-          <div class="col-xs-12 initially-hidden" id="log">
-            <br>
-            <img src="img/arrow.gif" alt="down arrow" />
-          </div>
-        </div><!--end interface row-->
-      </div><!-- end container-->
     </div><!--end frame-->
-    <h1 id="header">Pokemon <span id="logo">ARENA</span><span id="tm">tm</span></h1>
+    <h1 id="case">Nintendo <span id="logo">Gameboy</span><span id="tm">tm</span></h1>
     <div class="wrapper">  <input type="checkbox">  <label><i class='icon-off'></i></label></div>
   </body>
 </html>
