@@ -2,7 +2,7 @@
 var audio = new Audio('sounds/startup.mp3');
 
 $(function() {
-  $(".wrapper").click(function() {
+  $(".power-button").click(function() {
     if($(".power-light").hasClass("powerOn")) {
       location.reload();
     } else {
@@ -13,7 +13,7 @@ $(function() {
       $("#nintendo-screen").delay(1000).fadeOut(3000);
       $("#logo-screen").delay(10000).fadeIn(3000);
       $("#logo-screen").fadeOut(3000, function() {
-        
+
       });
       $("#play-screen").delay(17000).fadeIn(3000);
 
