@@ -95,6 +95,68 @@ body {
   margin: 23% 0 0 5%;
 }
 
-.wrapper {
+.power-button {
   margin: 0 0 0 850px;
+}
+
+@media ( max-height: 1050px ) {
+
+  .frame {
+    background-color: #6e7884;
+    width: 700px;
+    height: 560px;
+    position: relative;
+    margin: 2.5% 5%;
+    border-radius: 28px 28px 91px 28px;
+    float: left;
+  }
+  .gameboy {
+    position: absolute;
+    width: 490px;
+    height: 490px;
+    background-color: #CADC9F;
+    margin: 5% 15%;
+    padding: 0px;
+    box-shadow: inset 0px 0px 20px 10px rgba(0, 0, 0, 0.6);
+    float: left;
+  }
+
+  /*/////////////////////gameboy/////////////////////////////////*/
+  .power-light {
+    width: 20px;
+    height: 20px;
+    background-color: #3b272c;
+    border: thin solid black;
+    border-radius: 100%;
+    float: left;
+    margin: 210px 0 0 35px;
+  }
+
+  .powerOn {
+    background-color: #fc0265;
+    box-shadow: 0 0 10px 1px #fc0265;
+    border: 2px solid grey;
+  }
+
+  #power-text, #tm {
+    display: none;
+  }
+
+  #case{
+    float: left;
+    margin: 2.5% 0;
+    font-size: 25px;
+  }
+
+  #logo {
+    float: right;
+    margin: 0;
+    font-size: 40px;
+  }
+
+  .power-button {
+    float: left;
+    margin: 5%;
+  }
+
 }
