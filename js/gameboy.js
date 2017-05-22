@@ -2,7 +2,7 @@
 var audio = new Audio('sounds/startup.mp3');
 
 $(function() {
-  $(".power-button").click(function() {
+  $("#power-button").click(function() {
     if($(".power-light").hasClass("powerOn")) {
       location.reload();
     } else {

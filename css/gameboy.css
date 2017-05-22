@@ -95,8 +95,26 @@ body {
   margin: 23% 0 0 5%;
 }
 
-.power-button {
+#power-button {
   margin: 0 0 0 850px;
+}
+
+#a-button, #b-button {
+  width: 100px;
+  height: 100px;
+  margin: -80px 0 0 450px;
+}
+
+#a-button label, #b-button label  {
+  background: radial-gradient(#7d0646,#4a0313);
+}
+
+#a-button .icon-off:after, #b-button .icon-off:after {
+  background: radial-gradient(#8e1757, #7d0646);
+}
+
+#b-button {
+  margin: 0 0 0 300px;
 }
 
 @media ( max-height: 1050px ) {
@@ -154,9 +172,21 @@ body {
     font-size: 40px;
   }
 
-  .power-button {
+  #power-button {
     float: left;
     margin: 0 10% 0 5%;
   }
+
+  #a-button, #b-button {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 60px 0 0 200px;
+  }
+
+  #b-button {
+    margin: 40px 0 0 60px;
+  }
+
 
 }
